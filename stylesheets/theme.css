@@ -1,0 +1,26 @@
+
+textarea {
+  resize: none;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-buffer {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#viewer {
+    height: 700px;
+}
+
+    /* put a border around the viewer window */
+.adsk-viewing-viewer {
+    border-style: solid;
+    border-width: 1px;
+}

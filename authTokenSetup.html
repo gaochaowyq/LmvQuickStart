@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>AuthTokenServer Setup</title>
+        
+        <link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="stylesheets/theme.css" rel="stylesheet">
+        
+            <!-- jQuery -->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+        <script src="./scripts/libs/jquery/jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container form-buffer">
+            <div>
+                <img id="img_logo" src="./Images/logo_header.png">
+                <h1>Auth Token Service - Setup</h1>
+            </div>
+            
+            <div class="container">
+                <p>One of the first things you need to do to start using the View and Data API is to get an Auth Token Server setup and working to authorize all your calls to the API.  To help people over that intial speed bump, we have a "template" version of a simple AuthTokenServer.</p>
+                <p>Source code can be found here: <a href="https://github.com/Developer-Autodesk/AuthTokenServer_Simple.git" target="_blank">SimpleAuthTokenServer on GitHub</a></p>
+                <p>The only file of real relevance is AuthTokenServer.js.  It is a Node.js file that is started to run the service.  The rest of the files in the project are files installed by Node.js package "Express" and a few config files that were used to deploy on Heroku.</p>
+                <p>You can run locally by doing the following:</p>
+                <ol>
+                    <li>If Node.js is not installed, install it from: <a href="http://nodejs.org/download/" target="_blank">here</a></li>
+                    <li>Edit the file AuthTokenServer.js and add your developer keys to the appropriate endpoint (PRODUCTION at a minimum)</li>
+                    <li>Go to a Terminal window and change to the project directory.</li>
+                    <li>Run command:  "node AuthTokenServer.js"</li>
+                    <li>Go to a Web browser and try the following URL:  http://127.0.0.1:5000/</li>
+                    <li>That sould respond with a message "I'm Alive!"</li>
+                    <li>Then try URL:  http://127.0.0.1:5000/auth</li>
+                    <li>That should send a response that looks something like:  {"token_type":"Bearer","expires_in":1799,"access_token":"m2Y1gIgXYZZZZZZNzYgmQYoqK0"}</li>
+                    <li>From your app, you can now use this simple AuthTokenService to generate tokens which you use to make requests to the View and Data API.</li>
+                    <li>If you want, drop the file MyAuthToken.js into your app.  Then you only have to create a new MyAuthToken object and call the .value() function anytime you need to return the auth token to an API.</li>
+                    <li>Later, you will want to deploy this AuthTokenServer to Heroku or some other hosting service (see Step 14 in the QuickStart Guide for more details on how to do this).</li>
+                </ol>
+                <p>NOTE: if you need some help understanding how GitHub works, here are some good resources:</p>
+                <ul>
+                    <li><a href="http://git-scm.com/book" target="_blank">GitHub online book</a></li>
+                    <li><a href="https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github/" target="_blank">GitHub resources</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
