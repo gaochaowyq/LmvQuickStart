@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Autodesk View and Data API Live Sample</title>
+        
+        <link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="stylesheets/theme.css" rel="stylesheet">
+        
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+        <script src="./scripts/libs/jquery/jquery-2.1.1.min.js"></script>
+        
+            <!-- Autodesk Viewer (from server: PROD) -->
+        <link rel="stylesheet" href="https://viewing.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+        <script src="https://viewing.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+        
+            <!-- Autodesk Viewer (from server: STAGING) -->
+        <!--<link rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+        <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>-->
+        
+                <!-- This apps includes -->
+        <link href="./stylesheets/theme.css" rel="stylesheet">
+        <script src="./scripts/MyAuthToken.js"></script>
+    </head>
+    
+    <body onload="loadInitialModel();" style="margin:0" oncontextmenu="return false;">  <!-- NOTE: setting oncontextmenu=false allows the viewer context menu to work (for things like "Hide Selected") -->
+        <div class="container">
+            <div class="row form-buffer">
+                <img id="img_logo" src="./images/logo_header.png" alt="Autodesk, Inc.">
+            </div>
+            <div class="row form-buffer">
+                <div class="col-md-4">
+                    <h1>Autodesk View and Data API - Live Sample</h1>
+                </div>
+                <div class="col-md-4">
+                    <label for="pu_modelToLoad">Model</label>
+                    <select id="pu_modelToLoad" class="form-control" name="modelToLoad">
+                        <!-- Options filled in by function in LoadModel.js -->
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="pu_viewToLoad">View</label>
+                    <select id="pu_viewToLoad" class="form-control" name="viewToLoad">
+                        <!-- Options filled in by function in LoadModel.js -->
+                    </select>
+                </div>
+            </div>
+        </div>
+            
+            <!-- Viewer and API function selection -->
+        <div class="container">
+            <div class="row form-buffer">
+                <div class="col-md-12" id="viewer">          <!-- Viewer goes here -->        
+                    <!-- Upon the viewer initalizaiton, it will append a div to the above div to insert the viewer.  It
+                        will use 100% width and height so that it will fill up whatever the above div's dimensions are. 
+                        NOTE: I had to set height in theme.css for this object or bootstrap would set height to 1px -->
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="container">
+            <div class="row form-buffer">
+                <div class="col-md-4">
+                    <a href="http://s3.amazonaws.com/FastViewer/hdr/viewer3d.html?svf=data/jimawe/legoman/1/lego_guy20140131091958.svf" target="iframe_lmvSample">
+                        <img width=300 height=200 id="img_Legoman" src="./Images/FsnLegoman.png">
+                    </a>
+                    <h5>Fusion LegoMan</h5>
+                </div>
+                <div class="col-md-4">
+                    <a href="http://s3.amazonaws.com/FastViewer/hdr/viewer3d.html?svf=data/jimawe/church/_3D_/_3D_.svf" target="iframe_lmvSample">
+                        <img width=300 height=200 id="img_Church" src="./Images/RvtChurch.png">
+                    </a>
+                    <h5>Revit Church</h5>
+                </div>
+                <div class="col-md-4">
+                    <a href="http://s3.amazonaws.com/FastViewer/hdr/viewer3d.html?svf=data/jimawe/factory/0/0.svf" target="iframe_lmvSample">
+                        <img width=300 height=200 id="img_Factory" src="./Images/NwdFactory.png">
+                    </a>
+                    <h5>Navisworks Factory</h5>
+                </div>
+            </div>
+        </div>-->
+        
+        <script src="./scripts/LoadModel.js"></script>
+        
+    </body>
+</html>
