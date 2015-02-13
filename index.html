@@ -33,7 +33,7 @@
     </head>
     <body>
         <div class="container form-buffer">
-            <img id="img_logo" src="./Images/logo_header.png" alt="Autodesk Logo">
+            <img id="img_logo" src="./images/logo_header.png" alt="Autodesk Logo">
             <h1>Autodesk View and Data API - Quick Start Guide</h1>
         </div>
             
@@ -46,7 +46,7 @@
             <div class="row form-group">
                 <div class="col-md-6">
                     <a href="./liveSample.html" target="_blank">
-                        <img width=300 height=200 id="img_Legoman" src="./Images/FsnLegoman.png" alt="LMV Live Sample screenshot">
+                        <img width=300 height=200 id="img_Legoman" src="./images/FsnLegoman.png" alt="LMV Live Sample screenshot">
                     </a>
                 </div>
             </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="form-group">
                 <a href="https://developer.autodesk.com" target="_blank">
-                    <img width=300 height=200 id="img_getKeys" src="./Images/GetKeys.png" alt="Get Keys screenshot">
+                    <img width=300 height=200 id="img_getKeys" src="./images/GetKeys.png" alt="Get Keys screenshot">
                 </a>
             </div>
             <div class="form-group">
@@ -258,7 +258,7 @@
             <div class="form-group">
                 <h2>Step 8: Get Bucket Object</h2>
                 <h4>[Optional]</h4>
-                <p>Get the details of an object (file) in the bucket.  Enter the <strong><em>key</em></strong> value from Step 7 (not the full URN).</p>
+                <p>Get the details of an object (file) in the bucket.</p>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -268,7 +268,7 @@
                     </div>
                    <div class="form-group">
                         <label for="eb_objKey">Object Key</label>
-                        <input name="objKey" id="eb_objKey" class="form-control" autofocus>
+                        <input name="objKey" id="eb_objKey" class="form-control">
                     </div>
                     <button class="btn btn-primary" type="submit">Get Bucket Object</button>
                 </div>
@@ -329,7 +329,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="eb_urnToEncode">URN to Encode</label>
-                        <input name="urn" id="eb_urnToEncode" class="form-control" autofocus>
+                        <input name="urn" id="eb_urnToEncode" class="form-control">
                     </div>
                     <button class="btn btn-primary" type="submit">Encode Base64</button>
                 </div>
@@ -352,7 +352,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="eb_urnOfFile">Encoded URN of file to translate</label>
-                        <input name="urn" id="eb_urnOfFile" class="form-control" autofocus>
+                        <input name="urn" id="eb_urnOfFile" class="form-control">
                     </div>
                     <button class="btn btn-primary" type="submit">Translate</button>
                 </div>
@@ -374,8 +374,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="eb_urnOfFileViewStatus">URN of file</label>
-                        <input name="urn" id="eb_urnOfFileViewStatus" class="form-control" autofocus>
+                        <label for="eb_urnOfFileViewStatus">Encoded URN of file</label>
+                        <input name="urn" id="eb_urnOfFileViewStatus" class="form-control">
                         <div class="checkbox">
                             <label>
                                 <input id="cb_viewStatusAll" type="checkbox"> All info
@@ -402,8 +402,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label for="eb_urnToView">URN of file to view</label>
-                        <input name="urn" id="eb_urnToView" class="form-control" autofocus>
+                        <label for="eb_urnToView">Encoded URN of file to view</label>
+                        <input name="urn" id="eb_urnToView" class="form-control">
                     </div>
                     <button class="btn btn-primary" type="submit">View it</button>
                 </div>
