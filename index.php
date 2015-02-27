@@ -1,1 +1,1 @@
-<?php include_once("quickStart.html"); ?>
+<?php include_once("index.html"); ?>
