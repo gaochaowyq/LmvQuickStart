@@ -43,7 +43,7 @@
 									<a class="navbar-brand" href="javascript:void(0)"><img width="160px;" src="images/Autodesk_logo.png" style="padding: 20px;"></a>
 								</div>
                                 <ul class="nav navbar-nav navbar-right">
-									<li><a href="https://github.com/Developer-Autodesk/LmvQuickStart">See Source Code</a></li>
+									<li><a href="https://github.com/Developer-Autodesk/LmvQuickStart" target="_blank">See Source Code</a></li>
 								</ul>
 							</div>
 						</div>
@@ -88,7 +88,6 @@
 											<li role="presentation"><a href="#step11" class="first-child">11: Translate File</a></li>
 											<li role="presentation"><a href="#step12" class="first-child">12: View Status</a></li>
 											<li role="presentation"><a href="#step13" class="first-child">13: View Your File</a></li>
-											<li role="presentation"><a href="#step14" class="first-child">14: Source Code</a></li>
 										</ul>
 									</div>
 								</div>
@@ -117,7 +116,6 @@
 											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
 											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
 											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step14" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
 										</ul>
 									</div>
 								</div>
@@ -153,22 +151,22 @@
 											<form id="form_signUp">
 												<div class="form-group">
                                                     <div id="step2" class="app-api-section-heading">
-													   <h2>Step 2:  Sign Up</h2>
+                                                        <h2>Step 2: Sign Up/Sign In</h2>
                                                     </div>
-													<p>To use the Autodesk View and Data API, first create an account using the developer portal. Click on “REGISTER” and fill out the information.  You will be sent an email with login information.  Login to the developer portal and set your password. Once you’ve done so, you can create an application.</p>
-													<ul>
-														<li>Click on “My Apps”</li>
-														<li>Select “Add a new app” to create a new application.</li>
-														<li>Enter the application name, and your website URL under “Callback URL”</li>
-														<li>Under "Product" select your API as “View and Data API”.</li>
-													</ul>
-													<p><strong>Note:</strong> the Callback URL is for OAuth2 two-leg authentication. Don’t worry if you do not have a callback set up yet, but a value is required in this field to proceed. Once you have an application set up, you will see a Consumer Key, Consumer Secret, and the Callback URL. Note what these are, you will need them for the next step.</p>
-													<p><strong>Note:</strong> if the Consumer Key and Consumer Secret are struck out, your application is pending approval, and you will not be able to authenticate and use the APIs until it is approved.</p>
-												</div>
+                                                    <p>To use the Autodesk View and Data API, first log in or register an Autodesk ID. Once you are logged in, you can create an app with the View and Data API.</p>
+                                                    <ul>
+                                                        <li>Click on “Create an App”</li>
+                                                        <li>Select the “View and Data API Beta” checkbox.</li>
+                                                        <li>Enter the app name, description, and your website URL under “Redirect URL”</li>
+                                                        <li>Check if your app will be used for commercial purposes. The API is still in beta, so we’d like to work closely with you if you’d like to put it in a commercial application.</li>
+                                                    </ul>
+                                                    <p><strong>Note:</strong> the Callback/Redirect URL is for OAuth2 two-leg authentication. Don’t worry if you do not have a callback/redirect set up yet, but a value is required in this field to proceed. Once you have an application set up, you will see a Consumer Key, Consumer Secret, and the Callback/Redirect URL. Save your Consumer Key and Consumer Secret, you will need them for the next step.</p>
+                                                    <p><strong>Note:</strong> if the Consumer Key and Consumer Secret are struck out, your application is pending approval, and you will not be able to authenticate and use the APIs until it is approved.</p>
+                                                </div>
 												<div class="form-group">
 													<a href="https://developer.autodesk.com" target="_blank">
                                                     <div class="row-picture app-row-picture app-api-picture app-api-screenshoot col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
-													   <img width=100% id="img_getKeys" src="./images/GetKeys.png" alt="Get Keys screenshot">
+													   <img width=100% id="img_getKeys" src="./images/create-app.png" alt="Get Keys screenshot">
                                                     </div>
 													</a>
 												</div>
@@ -176,7 +174,6 @@
 													<button class="btn btn-primary" type="submit">Sign up</button>
 												</div>
 											</form>
-											<br/>
 											<!--  FORM: Set up a token service -->
 											<form id="form_getAccessToken">
 												<div class="form-group">
@@ -317,7 +314,6 @@
 														<li>SIM 360</li>
 														<li>Autodesk Navisworks</li>
 														<li>Autodesk Revit</li>
-														<li>Autodesk 3Ds Max</li>
 														<li>Solidworks</li>
 														<li>CATIA</li>
 														<li>Siemens Parasolid</li>
@@ -524,14 +520,6 @@
 												</div>
 											</form>
 											</br>
-											<form id="form_viewTranslateStatus">
-												<div class="form-group">
-                                                    <div id="step14" class="app-api-section-heading">
-													   <h2>Step 14: Source Code!</h2>
-                                                    </div>
-													<p>The <a target="_blank" href="https://github.com/Developer-Autodesk/LmvQuickStart">source code</a> of this page is on GitHub!</p>
-												</div>
-											</form>
 										</div>
 									</div>
 								</div>
