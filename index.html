@@ -1,447 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title>Autodesk View and Data API Quick Start Guide</title>
-        
-            <!-- Bootstrap -->
-        <link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
-        <link href="stylesheets/theme.css" rel="stylesheet">
-        
-            <!-- jQuery -->
-        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-        <script src="./scripts/libs/jquery/jquery-2.1.1.min.js"></script>
-        
-            <!-- spin.js -->
-        <script src="./scripts/libs/spin/spin.min.js"></script>
-        
-            <!-- Autodesk Viewer (from server: PROD) -->
-        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
-        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
-        
-            <!-- Autodesk Viewer (from server: STAGING) -->
-        <!--<link rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
-        <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>-->
-      
-            <!-- our local scripts -->
-        <script src="./scripts/Base64.js"></script>
-        <script src="./scripts/MyAuthToken.js"></script>
-        <script src="./scripts/DebugUtils.js"></script>
-        <script src="./scripts/FileUploader.js"></script>
-    </head>
-    <body>
-        <div class="container form-buffer">
-            <img id="img_logo" src="./images/logo_header.png" alt="Autodesk Logo">
-            <h1>Autodesk View and Data API - Quick Start Guide</h1>
-        </div>
-            
-              <!-- FORM: try it live -->
-        <form class="bg-info container" id="formTryLive">
-            <div class="form-group">
-                <h2>Step 1: Try the viewer live</h2>
-                <p>Click on the image below to try out the viewer on an already translated model.</p>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-6">
-                    <a href="./liveSample.html" target="_blank">
-                        <img width=300 height=200 id="img_Legoman" src="./images/FsnLegoman.png" alt="LMV Live Sample screenshot">
-                    </a>
-                </div>
-            </div>
-             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Try it</button>
-            </div>
-        </form>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Autodesk View and Data API Quick Start Guide</title>
+		<!-- Bootstrap -->
+		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
+		<link href="stylesheets/theme.css" rel="stylesheet">
+		<!-- jQuery -->
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+		<script src="./scripts/libs/jquery/jquery-2.1.1.min.js"></script>
+		<!-- spin.js -->
+		<script src="./scripts/libs/spin/spin.min.js"></script>
+		<!-- Autodesk Viewer (from server: PROD) -->
+		<link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+		<script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+		<!-- Autodesk Viewer (from server: STAGING) -->
+		<!--<link rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+			<script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>-->
+		<!-- our local scripts -->
+		<script src="./scripts/Base64.js"></script>
+		<script src="./scripts/MyAuthToken.js"></script>
+		<script src="./scripts/DebugUtils.js"></script>
+		<script src="./scripts/FileUploader.js"></script>
+		<!--  adsk template -->
+		<link href="css/ionicons.css" rel="stylesheet">
+<!--		<link href="css/maria-theme-checkbox.css" rel="stylesheet">-->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/maria-base-theme.css" rel="stylesheet">
+		<link href="css/maria-theme.css" rel="stylesheet">
+		<link href="css/open-sans.css" rel="stylesheet">
+	</head>
+	<body data-spy="scroll" data-target="#nav-parent">
+		<!-- Header================================================== -->
+		<div class="bs-docs-section clearfix">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bs-component">
+						<div class="navbar navbar-default app-navbar">
+							<div class="container app-container">
+								<div class="navbar-header">
+									<a class="navbar-brand" href="http://developer-autodesk.github.io/"><img width="160px;" src="images/Autodesk_logo.png" style="padding: 20px;">Developer</a>
+								</div>
+                                <ul class="nav navbar-nav navbar-right">
+									<li><a href="https://github.com/Developer-Autodesk/LmvQuickStart" target="_blank">See Source Code</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Banner================================================== -->
+		<div class="clearfix">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header content-header app-content-header api-detail-header view-and-data-api">
+						<div class="container app-container">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 app-title-container">
+								<h1 id="view-and-data-title">View and Data API Beta - Quick Start Guide</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--  Content  -->
+		<div class="content-form app-content-form clearfix">
+			<div class="container app-container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+						<div id="nav-parent" class="page-header hidden-xs">
+							<div data-spy="affix" data-offset-top="200" class="panel panel-default app-panel-default app-sidenav-panel">
+								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
+									<div class="col-lg-12">
+										<ul class="nav nav-pills nav-stacked app-sidenav">
+											<li role="presentation" class="active"><a href="#step1" class="first-child">1: Try the Viewer Live</a></li>
+											<li role="presentation"><a href="#step2" class="first-child">2: Sign Up</a></li>
+											<li role="presentation"><a href="#step3" class="first-child">3: Get Access Token</a></li>
+											<li role="presentation"><a href="#step4" class="first-child">4: Create Bucket</a></li>
+											<li role="presentation"><a href="#step5" class="first-child">5: Get Bucket Details</a></li>
+											<li role="presentation"><a href="#step6" class="first-child">6: Get Supported Formats</a></li>
+											<li role="presentation"><a href="#step7" class="first-child">7: Upload File</a></li>
+											<li role="presentation"><a href="#step8" class="first-child">8: Get Bucket Object</a></li>
+											<li role="presentation"><a href="#step9" class="first-child">9: Set References</a></li>
+											<li role="presentation"><a href="#step10" class="first-child">10: Encode URN</a></li>
+											<li role="presentation"><a href="#step11" class="first-child">11: Translate File</a></li>
+											<li role="presentation"><a href="#step12" class="first-child">12: View Status</a></li>
+											<li role="presentation"><a href="#step13" class="first-child">13: View Your File</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="nav-parent-mobile" class="page-header hidden-sm hidden-md hidden-lg">
+							<div data-spy="affix" data-offset-top="150" class="panel panel-default app-panel-default app-sidenav-panel">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								</button>
+								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
+									<div class="col-lg-12">
+										<ul class="nav nav-pills nav-stacked app-sidenav">
+											<li role="presentation" class="active"><a href="#step1" class="first-child" data-toggle="collapse" data-target=".navbar-responsive-collapse">Overview</a></li>
+											<li role="presentation"><a href="#step2" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step3" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step4" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step5" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step6" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step7" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step8" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step9" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step10" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+						<div class="page-header">
+							<div class="panel panel-default app-panel-default">
+								<div class="panel-body app-panel-body app-api-doc">
+									<div class="col-lg-12">
+										<div class="app-api-section">
+											<!-- FORM: try it live -->
+											<form id="formTryLive">
+												<div class="form-group">
+                                                    <div id="step1" class="app-api-section-heading">
+													   <h2 class="app-api-section-title first-child">Step 1: Try the Viewer Live</h2>
+                                                    </div>
+													<p>Click on the image below to try out the viewer on an already translated model.</p>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-6">
+														<a href="./liveSample.html" target="_blank">
+														<img width=100% id="img_Legoman" src="./images/FsnLegoman.png" alt="LMV Live Sample screenshot">
+														</a>
+													</div>
+												</div>
+												<div class="form-group">
+													<button class="btn btn-primary" type="submit">Try it</button>
+												</div>
+											</form>
+											<!--  FORM: Sign up and get Access Keys -->
+											<form id="form_signUp">
+												<div class="form-group">
+                                                    <div id="step2" class="app-api-section-heading">
+                                                        <h2>Step 2: Sign Up/Sign In</h2>
+                                                    </div>
+                                                    <p>To use the Autodesk View and Data API, first log in or register an Autodesk ID. Once you are logged in, you can create an app with the View and Data API.</p>
+                                                    <ul>
+                                                        <li>Click on “Create an App”</li>
+                                                        <li>Select the “View and Data API Beta” checkbox.</li>
+                                                        <li>Enter the app name, description, and your website URL under “Redirect URL”</li>
+                                                        <li>Check if your app will be used for commercial purposes. The API is still in beta, so we’d like to work closely with you if you’d like to put it in a commercial application.</li>
+                                                    </ul>
+                                                    <p><strong>Note:</strong> the Callback/Redirect URL is for OAuth2 two-leg authentication. Don’t worry if you do not have a callback/redirect set up yet, but a value is required in this field to proceed. Once you have an application set up, you will see a Consumer Key, Consumer Secret, and the Callback/Redirect URL. Save your Consumer Key and Consumer Secret, you will need them for the next step.</p>
+                                                    <p><strong>Note:</strong> if the Consumer Key and Consumer Secret are struck out, your application is pending approval, and you will not be able to authenticate and use the APIs until it is approved.</p>
+                                                </div>
+												<div class="form-group">
+													<a href="https://developer.autodesk.com" target="_blank">
+                                                    <div class="row-picture app-row-picture app-api-picture app-api-screenshoot col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
+													   <img width=100% id="img_getKeys" src="./images/create-app.png" alt="Get Keys screenshot">
+                                                    </div>
+													</a>
+												</div>
+												<div class="form-group">
+													<button class="btn btn-primary" type="submit">Sign up</button>
+												</div>
+											</form>
+											<!--  FORM: Set up a token service -->
+											<form id="form_getAccessToken">
+												<div class="form-group">
+                                                    <div id="step3" class="app-api-section-heading">
+													   <h2>Step 3:  Get Your Access Token</h2>
+                                                    </div>
+													<p>To get an access token, pass your Consumer Key (as the client_id parameter) and Consumer Secret (as the client_secret parameter) to the Authentication API.  However, this cannot be done from the browser context because it would be a security hole to let your keys "leak out" to an unsafe location.  Therefore, you need to setup an Auth Token Service and embed your keys safely in that service.  Your browser based app will then call that service to get a valid auth token that it can use to make all API calls.  For more information on how to set up your own Auth Token Service, click <a href="./authTokenSetup.html" target="_blank">here</a></p>
+                                                    <p>If you want to quickly authenticate, you can just enter your client id and secret below and click "Get Access Token", then copy and paste the token in the text area and click "Use Token":</p>
+                                                    <p>The token will last for 30 minutes. If your token expired, do this step again.</p>
+                                                    <iframe style="border:none" width="100%" height="280px" src="http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/access-token.jsp"></iframe>
 
-        <br/>
-
-            <!--  FORM: Sign up and get Access Keys -->
-        <form class="bg-info container" id="form_signUp">
-            <div class="form-group">
-                <h2>Step 2:  Sign up</h2>
-                <p>To use the Autodesk View and Data API, first create an account using the developer portal. Click on “REGISTER” and fill out the information.  You will be sent an email with login information.  Login to the developer portal and set your password. Once you’ve done so, you can create an application.</p>
-                <ul>
-                    <li>Click on “My Apps”</li>
-                    <li>Select “Add a new app” to create a new application.</li>
-                    <li>Enter the application name, and your website URL under “Callback URL”</li>
-                    <li>Under "Product" select your API as “View and Data API”.</li>
-                </ul>
-                <p><strong>Note:</strong> the Callback URL is for OAuth2 two-leg authentication. Don’t worry if you do not have a callback set up yet, but a value is required in this field to proceed. Once you have an application set up, you will see a Consumer Key, Consumer Secret, and the Callback URL. Note what these are, you will need them for the next step.</p>
-                <p><strong>Note:</strong> if the Consumer Key and Consumer Secret are struck out, your application is pending approval, and you will not be able to authenticate and use the APIs until it is approved.</p>
-            </div>
-            <div class="form-group">
-                <a href="https://developer.autodesk.com" target="_blank">
-                    <img width=300 height=200 id="img_getKeys" src="./images/GetKeys.png" alt="Get Keys screenshot">
-                </a>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Sign up</button>
-            </div>
-        </form>
-
-        <br/>
-        
-            <!--  FORM: Set up a token service -->
-        <form class="bg-info container" id="form_getAccessToken">
-            <div class="form-group">
-                <h2>Step 3:  Get your access token</h2>
-                <p>To get an access token, pass your Consumer Key (as the client_id parameter) and Consumer Secret (as the client_secret parameter) to the Authentication API.  However, this cannot be done from the browser context because it would be a security hole to let your keys "leak out" to an unsafe location.  Therefore, you need to setup an Auth Token Service and embed your keys safely in that service.  Your browser based app will then call that service to get a valid auth token that it can use to make all API calls.  For more information on how to set up your own Auth Token Service, click <a href="./authTokenSetup.html" target="_blank">here</a></p>
-                <p>If you use your own custom AuthTokenServer, enter the URL.  It must return the full response text that comes back from the call to the Viewing Service's <em>authenticate</em> API.</p>
-                <p>If you want to quickly authenticate, you can just cut and paste the following command to a Terminal window:<p>
-
-                    <label for="txt_curlStatement">cURL Statement</label>
-                    <textarea class="form-control" id="txt_curlStatement" rows="1">curl --data "client_id=MY_CONSUMER_KEY&amp;client_secret=MY_CONSUMER_SECRET&amp;grant_type=client_credentials" https://developer.api.autodesk.com/authentication/v1/authenticate --header "Content-Type: application/x-www-form-urlencoded" -k</textarea>
-                <p>Make sure to relplace <em>MY_CONSUMER_KEY</em> and <em>MY_CONSUMER_SECRET</em> with the keys you obtained in Step 2.  When you get the result, cut and paste the "access_token" into the field below and then press the "Use AuthToken" button.  This AuthToken will expire after approximately 30 minutes and you will have to do this step again.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_authToken">Auth Token</label>
-                        <input name="authToken" id="eb_authToken" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="checkbox">
-                        <label>
-                            <input id="cb_useCustomeAuthTokenSvc" type="checkbox"> Use Custom AuthTokenService
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="eb_urlAuthTokenService">URL of Auth Token Service</label>
-                        <input name="urlAuthTokenService" id="eb_urlAuthTokenService" class="form-control" autofocus disabled>
-                    </div>
-                    <div class="form-group">
-                        <button id="bn_authenticate" class="btn btn-primary" type="submit">Authenticate</button>
-                    </div>
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="txt_resAuthenticate">Result</label>
-                    <textarea class="form-control" id="txt_resAuthenticate" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-            <!--  FORM: Create a bucket -->
-        <form class="bg-info container" id="form_createBucket">
-            <div class="form-group">
-                <h2>Step 4:  Create a Bucket</h2>
-                <p>"Buckets" are containers for data used by the Autodesk View and Data API.  Before uploading a file, create a bucket and set a retention policy. Briefly, the policies are:</p>
-                <ul class="simple">
-                    <li><em>Transient</em>: cache-like storage that persists for only 24 hours, ideal for intermittent objects.</li>
-                    <li><em>Temporary</em>: storage that persists for 30 days.  Good for data that is uploaded and accessed, then not needed later.  This type of bucket storage will save your service money.</li>
-                    <li><em>Persistent</em>: storage that persists until deleted.  Items that have not been accessed for 2 years may be archived.</li>
-                </ul>
-                <p>There are also some restrictions on the characters used in the bucket name. It must be between 3 to 128 characters long and contain only lowercase letters, numbers and the symbols . _ -</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_bucketNameCreate">Bucket Name</label>
-                        <input name="bucketName" id="eb_bucketNameCreate" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
-                    </div>
-                    <div class="form-group">
-                        <label for="pu_bucketPolicy">Retention Policy</label>
-                        <select name="policy" class="form-control" id="pu_bucketPolicy">
-                            <option value="1">transient</option>
-                            <option value="2">temporary</option>
-                            <option value="3">persistent</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Create Bucket</button>
-                </div>
-                <div  id="spn_createBucket" class="col-md-6 form-group">
-                    <label for="txt_resCreateBucket">Result</label>
-                    <textarea class="form-control" id="txt_resCreateBucket" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-                <!--  FORM: Get Bucket Details -->
-        <form class="bg-info container" id="form_getBucketDetails">
-            <div class="form-group">
-                <h2>Step 5: Get Bucket Details</h2>
-                <h4>[Optional]</h4>
-                <p>Get the details of a previously defined bucket and verify that it exists.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_bucketNameDetails">Bucket Name</label>
-                        <input name="bucketName" id="eb_bucketNameDetails" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
-                    </div>
-                    <button class="btn btn-primary" type="submit">Get Bucket Details</button>
-                </div>
-                <div id="spn_getBucket" class="col-md-6 form-group">
-                    <label for="txt_resGetBucketDetails">Result</label>
-                    <textarea class="form-control" id="txt_resGetBucketDetails" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-            <!--  FORM: Get Formats -->
-        <form class="bg-info container" id="form_getFormats">
-            <div class="form-group">
-                <h2>Step 6:  Get Supported Formats</h2>
-                <h4>[Optional]</h4>
-                <p>The extensions that have a channel named &#8220;Viewing-*&#8221; are supported for viewing.</p>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-6">
-                    <button class="btn btn-primary" type="submit">Get Supported Formats</button>
-                </div>
-                <div id="spn_getFormats" class="col-md-6">
-                    <label for="txt_resGetSupportedFormats">Result</label>
-                    <textarea class="form-control" id="txt_resGetSupportedFormats" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-            <!--  FORM: Upload File -->
-        <form class="bg-info container" id="form_uploadFile">
-            <div class="form-group">
-                <h2>Step 7:  Upload File to Bucket</h2>
-                <p>The next step is to put a file into your bucket so that it can be translated and viewed. Currently over 60 file formats are supported, including:</p>
-                <ul class="simple">
-                    <li>Autodesk DWG</li>
-                    <li>Autodesk Inventor</li>
-                    <li>Fusion 360</li>
-                    <li>SIM 360</li>
-                    <li>Autodesk Navisworks</li>
-                    <li>Autodesk Revit</li>
-                    <li>Autodesk 3Ds Max</li>
-                    <li>Solidworks</li>
-                    <li>CATIA</li>
-                    <li>Siemens Parasolid</li>
-                    <li>Siemens NX</li>
-                    <li>Siemens OpenJT</li>
-                    <li>WaveFront Technologies OBJ</li>
-                </ul>
-                <p>The key piece of information returned upon successful upload is the <strong>id</strong>, which is needed for the next steps.</p>
-                <p>If your model consists of several files (such as an Inventor Assembly IAM file and several IPT parts files), upload each of those files to your bucket, and note the ID for each one.  Then, you will need to do an extra step outlined here: <a href="http://developer.api.autodesk.com/documentation/v1/references.html#references-service-api" target="_blank">Composite Design Upload</a> and in Step 9 below.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_bucketNameUpload">Bucket Name</label>
-                        <input name="bucketName" id="eb_bucketNameUpload" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
-                    </div>
-                    <div class="form-group">
-                        <label for="ui_filePicker">Select File to Upload</label>
-                        <input type=file id="ui_filePicker"/>
-                        <p id="txt_fileLoadStatus">File not loaded</p>
-                    </div>
-                    <button class="btn btn-primary" id="bn_uplaodFile" type="submit" disabled>Upload File to Bucket</button>
-                </div>
-                <div id="spn_uploadFile" class="col-md-6 form-group">
-                    <label for="txt_resUploadFile">Result</label>
-                    <textarea class="form-control" id="txt_resUploadFile" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-            <!--  FORM: Get Object -->
-        <form class="bg-info container" id="form_getObj">
-            <div class="form-group">
-                <h2>Step 8: Get Bucket Object</h2>
-                <h4>[Optional]</h4>
-                <p>Get the details of an object (file) in the bucket.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_bucketNameGetObj">Bucket Name</label>
-                        <input name="bucketName" id="eb_bucketNameGetObj" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
-                    </div>
-                   <div class="form-group">
-                        <label for="eb_objKey">Object Key</label>
-                        <input name="objKey" id="eb_objKey" class="form-control">
-                    </div>
-                    <button class="btn btn-primary" type="submit">Get Bucket Object</button>
-                </div>
-                <div id="spn_getObj" class="col-md-6 form-group">
-                    <label for="txt_resGetObj">Result</label>
-                    <textarea class="form-control" id="txt_resGetObj" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-        
-            <!--  FORM: Set References -->
-        <form class="bg-info container" id="form_setReferences">
-            <div class="form-group">
-                <h2>Step 9: Set References</h2>
-                <h4>[Optional]</h4>
-                <p>Set references for a composite design (Xrefs/Assemblies).  Use the template below that shows the JSON format for specifying the references.  First upload the individual files using Step 7 above.  Record each of the <em>id</em> and <em>key</em> values and then paste them into the JSON format below to specify how the files work as an assembly.</p>
-                <p>The template shows "MYBUCKET", "ROOT_FILE", and "LINKED_FILE" as the placeholders you replace with your own data.  This template specifies a single linked file, but you can have multiple dependencies.  The reason for specifying the "metadata" section is so that you can temporarily rename one of the files to match what the authoring application would expect.  For example, if I had a ROOT file "A" that had a LINKED file "B", the translation process will expect the LINKED file to have that name.  But, you may have versioned the file upon upload and given it a new name like "B2".  You can then specify "childPath" as "B" so that it retains its original name when resolving within the authoring application during translation.</p>
-                <p>A null string response of "" means success.  Then use the <em>id</em> of the root file of the assembly as the one to register in Steps 10 and 11 below.</p>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-6">
-                    <label for="txt_sampleSetRefs">Sample - edit to fit your case</label>
-                    <textarea class="form-control" id="txt_sampleSetRefs" rows="10">
+                                                </div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_authToken">Access Token</label>
+															<input name="authToken" id="eb_authToken" class="form-control">
+														</div>
+														<div class="form-group">
+															<button id="bn_authenticate" class="btn btn-primary" type="submit">Authenticate</button>
+														</div>
+													</div>
+													<div class="col-md-6 form-group">
+														<label for="txt_resAuthenticate">Result</label>
+														<textarea class="form-control" id="txt_resAuthenticate" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Create a bucket -->
+											<form id="form_createBucket">
+												<div class="form-group">
+                                                    <div id="step4" class="app-api-section-heading">
+													   <h2>Step 4:  Create a Bucket</h2>
+                                                    </div>
+													<p>"Buckets" are containers for data used by the Autodesk View and Data API.  Before uploading a file, create a bucket and set a retention policy. Briefly, the policies are:</p>
+													<ul class="simple">
+														<li><em>Transient</em>: cache-like storage that persists for only 24 hours, ideal for intermittent objecats.</li>
+														<li><em>Temporary</em>: storage that persists for 30 days.  Good for data that is uploaded and accessed, then not needed later.  This type of bucket storage will save your service money.</li>
+														<li><em>Persistent</em>: storage that persists until deleted.  Items that have not been accessed for 2 years may be archived.</li>
+													</ul>
+													<p>There are also some restrictions on the characters used in the bucket name. It must be between 3 to 128 characters long and contain only lowercase letters, numbers and the symbols . _ -</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_bucketNameCreate">Bucket Name</label>
+															<input name="bucketName" id="eb_bucketNameCreate" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+														</div>
+														<div class="form-group">
+															<label for="pu_bucketPolicy">Retention Policy</label>
+															<select name="policy" class="form-control" id="pu_bucketPolicy">
+																<option value="1">transient</option>
+																<option value="2">temporary</option>
+																<option value="3">persistent</option>
+															</select>
+														</div>
+														<button class="btn btn-primary" type="submit">Create Bucket</button>
+													</div>
+													<div  id="spn_createBucket" class="col-md-6 form-group">
+														<label for="txt_resCreateBucket">Result</label>
+														<textarea class="form-control" id="txt_resCreateBucket" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Get Bucket Details -->
+											<form id="form_getBucketDetails">
+												<div class="form-group">
+                                                    <div id="step5" class="app-api-section-heading">
+													   <h2>Step 5: Get Bucket Details</h2>
+                                                    </div>
+													<h4>[Optional]</h4>
+													<p>Get the details of a previously defined bucket and verify that it exists.</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_bucketNameDetails">Bucket Name</label>
+															<input name="bucketName" id="eb_bucketNameDetails" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+														</div>
+														<button class="btn btn-primary" type="submit">Get Bucket Details</button>
+													</div>
+													<div id="spn_getBucket" class="col-md-6 form-group">
+														<label for="txt_resGetBucketDetails">Result</label>
+														<textarea class="form-control" id="txt_resGetBucketDetails" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Get Formats -->
+											<form id="form_getFormats">
+												<div class="form-group">
+                                                    <div id="step6" class="app-api-section-heading">
+													   <h2>Step 6:  Get Supported Formats</h2>
+                                                    </div>
+													<h4>[Optional]</h4>
+													<p>The extensions that have a channel named &#8220;Viewing-*&#8221; are supported for viewing.</p>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-6">
+														<button class="btn btn-primary" type="submit">Get Supported Formats</button>
+													</div>
+													<div id="spn_getFormats" class="col-md-6">
+														<label for="txt_resGetSupportedFormats">Result</label>
+														<textarea class="form-control" id="txt_resGetSupportedFormats" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Upload File -->
+											<form id="form_uploadFile">
+												<div class="form-group">
+                                                    <div id="step7" class="app-api-section-heading">
+													   <h2>Step 7:  Upload File to Bucket</h2>
+                                                    </div>
+													<p>The next step is to put a file into your bucket so that it can be translated and viewed. Currently over 60 file formats are supported, including:</p>
+													<ul class="simple">
+														<li>Autodesk DWG</li>
+														<li>Autodesk Inventor</li>
+														<li>Fusion 360</li>
+														<li>SIM 360</li>
+														<li>Autodesk Navisworks</li>
+														<li>Autodesk Revit</li>
+														<li>Solidworks</li>
+														<li>CATIA</li>
+														<li>Siemens Parasolid</li>
+														<li>Siemens NX</li>
+														<li>Siemens OpenJT</li>
+														<li>WaveFront Technologies OBJ</li>
+													</ul>
+													<p>The key piece of information returned upon successful upload is the <strong>id</strong>, which is needed for the next steps.</p>
+													<p>If your model consists of several files (such as an Inventor Assembly IAM file and several IPT parts files), upload each of those files to your bucket, and note the ID for each one.  Then, you will need to do an extra step outlined here: <a href="http://developer.api.autodesk.com/documentation/v1/references.html#references-service-api" target="_blank">Composite Design Upload</a> and in Step 9 below.</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_bucketNameUpload">Bucket Name</label>
+															<input name="bucketName" id="eb_bucketNameUpload" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+														</div>
+														<div class="form-group">
+															<label for="ui_filePicker">Select File to Upload</label>
+															<input type=file id="ui_filePicker"/>
+															<p id="txt_fileLoadStatus">File not loaded</p>
+														</div>
+														<button class="btn btn-primary" id="bn_uplaodFile" type="submit" disabled>Upload File to Bucket</button>
+													</div>
+													<div id="spn_uploadFile" class="col-md-6 form-group">
+														<label for="txt_resUploadFile">Result</label>
+														<textarea class="form-control" id="txt_resUploadFile" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Get Object -->
+											<form id="form_getObj">
+												<div class="form-group">
+                                                    <div id="step8" class="app-api-section-heading">
+													   <h2>Step 8: Get Bucket Object</h2>
+                                                    </div>
+													<h4>[Optional]</h4>
+													<p>Get the details of an object (file) in the bucket.</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_bucketNameGetObj">Bucket Name</label>
+															<input name="bucketName" id="eb_bucketNameGetObj" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+														</div>
+														<div class="form-group">
+															<label for="eb_objKey">Object Key</label>
+															<input name="objKey" id="eb_objKey" class="form-control">
+														</div>
+														<button class="btn btn-primary" type="submit">Get Bucket Object</button>
+													</div>
+													<div id="spn_getObj" class="col-md-6 form-group">
+														<label for="txt_resGetObj">Result</label>
+														<textarea class="form-control" id="txt_resGetObj" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Set References -->
+											<form id="form_setReferences">
+												<div class="form-group">
+                                                    <div id="step9" class="app-api-section-heading">
+													   <h2>Step 9: Set References</h2>
+                                                    </div>
+													<h4>[Optional]</h4>
+													<p>Set references for a composite design (Xrefs/Assemblies).  Use the template below that shows the JSON format for specifying the references.  First upload the individual files using Step 7 above.  Record each of the <em>id</em> and <em>key</em> values and then paste them into the JSON format below to specify how the files work as an assembly.</p>
+													<p>The template shows "MYBUCKET", "ROOT_FILE", and "LINKED_FILE" as the placeholders you replace with your own data.  This template specifies a single linked file, but you can have multiple dependencies.  The reason for specifying the "metadata" section is so that you can temporarily rename one of the files to match what the authoring application would expect.  For example, if I had a ROOT file "A" that had a LINKED file "B", the translation process will expect the LINKED file to have that name.  But, you may have versioned the file upon upload and given it a new name like "B2".  You can then specify "childPath" as "B" so that it retains its original name when resolving within the authoring application during translation.</p>
+													<p>A null string response of "" means success.  Then use the <em>id</em> of the root file of the assembly as the one to register in Steps 10 and 11 below.</p>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-6">
+														<label for="txt_sampleSetRefs">Sample - edit to fit your case</label>
+														<textarea class="form-control" id="txt_sampleSetRefs" rows="10">
 {
     "master" : "urn:adsk.objects:os.object:MYBUCKET/ROOT_FILE.xyz",
-    "dependencies" : [
-      { "file" : "urn:adsk.objects:os.object:MYBUCKET/LINKED_FILE.xyz",
-        "metadata" : {
-            "childPath" : "LINKED_FILE.xyz",
-            "parentPath" : "ROOT_FILE.xyz"
+    "dependencies" : [{ 
+            "file" : "urn:adsk.objects:os.object:MYBUCKET/LINKED_FILE.xyz",
+            "metadata" : {
+                "childPath" : "LINKED_FILE.xyz",
+                "parentPath" : "ROOT_FILE.xyz"
+                }
         }
-      }
     ]
-}                   </textarea>
-                    <br/>
-                    <button class="btn btn-primary" type="submit">Set References</button>
-                </div>
-                <div id="spn_setRefs" class="col-md-6 form-group">
-                    <label for="txt_resSetRefs">Result</label>
-                    <textarea class="form-control" id="txt_resSetRefs" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-
-            <!--  FORM: Encode the ID from the upload -->
-        <form class="bg-info container" id="form_urnToEncode">
-            <div class="form-group">
-                <h2>Step 10: Encode URN</h2>
-                <p>Once the file has been successfully uploaded, we should have recieved back an <strong>id</strong> in the form of a URN.  It should look something like: "urn:adsk.objects:oss.object:mybucket/myfile.ext"</p>
-                <p>Subsequent usage of this URN must be base64 encoded. Use the input form below or an online tool (such as <a href="http://www.base64encode.org" target="_blank">this)</a> to convert the URN.  Use the entire string value retured for <strong>id</strong>, including the "urn:" prefix.</p>
-                <p><strong>Note:</strong> Javascript source for the input below is available via the source for this page if you want to programmatically encode the URN in future projects.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_urnToEncode">URN to Encode</label>
-                        <input name="urn" id="eb_urnToEncode" class="form-control">
-                    </div>
-                    <button class="btn btn-primary" type="submit">Encode Base64</button>
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="txt_resEncode64">Result</label>
-                    <textarea class="form-control" id="txt_resEncode64" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-        
-            <!--  FORM: Translate the file -->
-        <form class="bg-info container" id="form_translateFile">
-            <div class="form-group">
-                <h2>Step 11: Translate the File</h2>
-                <p>Have the viewing service translate your file to a neutral format</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_urnOfFile">Encoded URN of file to translate</label>
-                        <input name="urn" id="eb_urnOfFile" class="form-control">
-                    </div>
-                    <button class="btn btn-primary" type="submit">Translate</button>
-                </div>
-                <div id="spn_translateFile" class="col-md-6 form-group">
-                    <label for="txt_resTranslate">Result</label>
-                    <textarea class="form-control" id="txt_resTranslate" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-        
-            <!--  FORM: Get the details of the translated file -->
-        <form class="bg-info container" id="form_viewTranslateStatus">
-            <div class="form-group">
-                <h2>Step 12: View Translation Status</h2>
-                <p>See what the current status of your translation is</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="eb_urnOfFileViewStatus">Encoded URN of file</label>
-                        <input name="urn" id="eb_urnOfFileViewStatus" class="form-control">
-                        <div class="checkbox">
-                            <label>
-                                <input id="cb_viewStatusAll" type="checkbox"> All info
-                            </label>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Get Status</button>
-                </div>
-                <div id="spn_viewTranslationStatus" class="col-md-6 form-group">
-                    <label for="txt_resViewTranslateStatus">Result</label>
-                    <textarea class="form-control" id="txt_resViewTranslateStatus" rows="10" readonly></textarea>
-                </div>
-            </div>
-        </form>
-
-        <br/>
-                
-            <!--  FORM: View the translated file -->
-        <form class="bg-info container" id="form_fileToView">
-            <div class="form-group">
-                <h2>Step 13: View Your File!</h2>
-                <p>See your translated file in the viewer</p>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="eb_urnToView">Encoded URN of file to view</label>
-                        <input name="urn" id="eb_urnToView" class="form-control">
-                    </div>
-                    <button class="btn btn-primary" type="submit">View it</button>
-                </div>
-                <div class="col-md-4">
-                    <label for="pu_viewToLoad">3D / 2D Sheets</label>
-                    <select id="pu_viewToLoad" class="form-control" name="viewToLoad" disabled>
-                        <!-- Options filled in by function in LoadModel.js -->
-                    </select>
-                </div>
-            </div>
-            <div class="form-group"></div>  <!-- just need a little space -->
-            <div class="row">
-                <div class="col-md-10 form-group" id="viewer">          <!-- Viewer goes here -->        
-                    <!-- Upon the viewer initalizaiton, it will append a div to the above div to insert the viewer.  It
-                        will use 100% width and height so that it will fill up whatever the above div's dimensions are. 
-                        NOTE: I had to set height in theme.css for this object or bootstrap would set height to 1px -->
-                </div>
-            </div>
-        </form>
-        
-        </br>
-        
-        <form class="bg-info container" id="form_viewTranslateStatus">
-            <div class="form-group">
-                <h2>Step 14: Source Code!</h2>
-                <p>The <a href="https://github.com/Developer-Autodesk/LmvQuickStart">source code</a> of this page is on GitHub!</p>
-            </div>
-        </form>
-        
-        </br>
-
-        <script src="scripts/FormSteps.js"></script>
-        <script src="scripts/ViewIt.js"></script>
-        <script>
-            var fileControl = document.getElementById("ui_filePicker");
-            fileControl.addEventListener("change", startRead);
-        </script>
-        
-        
-    </body>
+}                   
+                                                        </textarea>
+														<br/>
+														<button class="btn btn-primary" type="submit">Set References</button>
+													</div>
+													<div id="spn_setRefs" class="col-md-6 form-group">
+														<label for="txt_resSetRefs">Result</label>
+														<textarea class="form-control" id="txt_resSetRefs" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Encode the ID from the upload -->
+											<form id="form_urnToEncode">
+												<div class="form-group">
+                                                    <div id="step10" class="app-api-section-heading">
+													   <h2>Step 10: Encode URN</h2>
+                                                    </div>
+													<p>Once the file has been successfully uploaded, we should have recieved back an <strong>id</strong> in the form of a URN.  It should look something like: "urn:adsk.objects:oss.object:mybucket/myfile.ext"</p>
+													<p>Subsequent usage of this URN must be base64 encoded. Use the input form below or an online tool (such as <a href="http://www.base64encode.org" target="_blank">this)</a> to convert the URN.  Use the entire string value retured for <strong>id</strong>, including the "urn:" prefix.</p>
+													<p><strong>Note:</strong> Javascript source for the input below is available via the source for this page if you want to programmatically encode the URN in future projects.</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_urnToEncode">URN to Encode</label>
+															<input name="urn" id="eb_urnToEncode" class="form-control">
+														</div>
+														<button class="btn btn-primary" type="submit">Encode Base64</button>
+													</div>
+													<div class="col-md-6 form-group">
+														<label for="txt_resEncode64">Result</label>
+														<textarea class="form-control" id="txt_resEncode64" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Translate the file -->
+											<form id="form_translateFile">
+												<div class="form-group">
+                                                    <div id="step11" class="app-api-section-heading">
+													   <h2>Step 11: Translate the File</h2>
+                                                    </div>
+													<p>Have the viewing service translate your file to a neutral format</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_urnOfFile">Encoded URN of file to translate</label>
+															<input name="urn" id="eb_urnOfFile" class="form-control">
+														</div>
+														<button class="btn btn-primary" type="submit">Translate</button>
+													</div>
+													<div id="spn_translateFile" class="col-md-6 form-group">
+														<label for="txt_resTranslate">Result</label>
+														<textarea class="form-control" id="txt_resTranslate" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: Get the details of the translated file -->
+											<form id="form_viewTranslateStatus">
+												<div class="form-group">
+                                                    <div id="step12" class="app-api-section-heading">
+													   <h2>Step 12: View Translation Status</h2>
+                                                    </div>
+													<p>See what the current status of your translation is</p>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="eb_urnOfFileViewStatus">Encoded URN of file</label>
+															<input name="urn" id="eb_urnOfFileViewStatus" class="form-control">
+															<div class="checkbox">
+																<label>
+																<input id="cb_viewStatusAll" type="checkbox"> All info
+																</label>
+															</div>
+														</div>
+														<button class="btn btn-primary" type="submit">Get Status</button>
+													</div>
+													<div id="spn_viewTranslationStatus" class="col-md-6 form-group">
+														<label for="txt_resViewTranslateStatus">Result</label>
+														<textarea class="form-control" id="txt_resViewTranslateStatus" rows="10" readonly></textarea>
+													</div>
+												</div>
+											</form>
+											<br/>
+											<!--  FORM: View the translated file -->
+											<form id="form_fileToView">
+												<div class="form-group">
+                                                    <div id="step13" class="app-api-section-heading">
+													   <h2>Step 13: View Your File!</h2>
+                                                    </div>
+													<p>See your translated file in the viewer</p>
+												</div>
+												<div class="row">
+													<div class="col-md-8">
+														<div class="form-group">
+															<label for="eb_urnToView">Encoded URN of file to view</label>
+															<input name="urn" id="eb_urnToView" class="form-control">
+														</div>
+														<button class="btn btn-primary" type="submit">View it</button>
+													</div>
+													<div class="col-md-4">
+														<label for="pu_viewToLoad">3D / 2D Sheets</label>
+														<select id="pu_viewToLoad" class="form-control" name="viewToLoad" disabled>
+															<!-- Options filled in by function in LoadModel.js -->
+														</select>
+													</div>
+												</div>
+												<div class="form-group"></div>
+												<!-- just need a little space -->
+												<div class="row">
+													<div class="col-md-11" id="viewer">
+														<!-- Viewer goes here -->        
+														<!-- Upon the viewer initalizaiton, it will append a div to the above div to insert the viewer.  It
+															will use 100% width and height so that it will fill up whatever the above div's dimensions are. 
+															NOTE: I had to set height in theme.css for this object or bootstrap would set height to 1px -->
+													</div>
+												</div>
+											</form>
+											</br>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="scripts/FormSteps.js"></script>
+		<script src="scripts/ViewIt.js"></script>
+		<script>
+			var fileControl = document.getElementById("ui_filePicker");
+			fileControl.addEventListener("change", startRead);
+		</script>
+	</body>
 </html>
