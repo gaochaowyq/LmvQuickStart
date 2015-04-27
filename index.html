@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Autodesk View and Data API Quick Start Guide</title>
 		<!-- Bootstrap -->
-		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
+<!--		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">-->
 		<link href="stylesheets/theme.css" rel="stylesheet">
 		<!-- jQuery -->
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
@@ -24,12 +24,12 @@
 		<script src="./scripts/DebugUtils.js"></script>
 		<script src="./scripts/FileUploader.js"></script>
 		<!--  adsk template -->
-		<link href="css/ionicons.css" rel="stylesheet">
-<!--		<link href="css/maria-theme-checkbox.css" rel="stylesheet">-->
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/maria-base-theme.css" rel="stylesheet">
-		<link href="css/maria-theme.css" rel="stylesheet">
-		<link href="css/open-sans.css" rel="stylesheet">
+        <link href="css/ionicons.css" rel="stylesheet">
+        <link href="css/maria-theme-checkbox.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/maria-base-theme.css" rel="stylesheet">
+        <link href="css/maria-theme.css" rel="stylesheet">
+        <link href="css/open-sans.css" rel="stylesheet">
 	</head>
 	<body data-spy="scroll" data-target="#nav-parent">
 		<!-- Header================================================== -->
@@ -71,7 +71,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 						<div id="nav-parent" class="page-header hidden-xs">
-							<div data-spy="affix" data-offset-top="200" class="panel panel-default app-panel-default app-sidenav-panel">
+							<div data-clampedwidth="#nav-parent" data-spy="affix" data-offset-top="200" class="panel panel-default app-panel-default app-sidenav-panel">
 								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
 									<div class="col-lg-12">
 										<ul class="nav nav-pills nav-stacked app-sidenav">
@@ -94,28 +94,28 @@
 							</div>
 						</div>
 						<div id="nav-parent-mobile" class="page-header hidden-sm hidden-md hidden-lg">
-							<div data-spy="affix" data-offset-top="150" class="panel panel-default app-panel-default app-sidenav-panel">
+							<div data-clampedwidth="#nav-parent-mobile" data-spy="affix" data-offset-top="150" class="panel panel-default app-panel-default app-sidenav-panel">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
 								</button>
 								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
 									<div class="col-lg-12">
 										<ul class="nav nav-pills nav-stacked app-sidenav">
 											<li role="presentation" class="active"><a href="#step1" class="first-child" data-toggle="collapse" data-target=".navbar-responsive-collapse">Overview</a></li>
-											<li role="presentation"><a href="#step2" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step3" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step4" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step5" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step6" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step7" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step8" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step9" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step10" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step2" data-toggle="collapse" data-target=".navbar-responsive-collapse">Sign Up</a></li>
+											<li role="presentation"><a href="#step3" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Access Token</a></li>
+											<li role="presentation"><a href="#step4" data-toggle="collapse" data-target=".navbar-responsive-collapse">Create Bucket</a></li>
+											<li role="presentation"><a href="#step5" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Bucket Details</a></li>
+											<li role="presentation"><a href="#step6" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Supported Formats</a></li>
+											<li role="presentation"><a href="#step7" data-toggle="collapse" data-target=".navbar-responsive-collapse">Upload File</a></li>
+											<li role="presentation"><a href="#step8" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Bucket Object</a></li>
+											<li role="presentation"><a href="#step9" data-toggle="collapse" data-target=".navbar-responsive-collapse">Set References</a></li>
+											<li role="presentation"><a href="#step10" data-toggle="collapse" data-target=".navbar-responsive-collapse">Encode URN</a></li>
+											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Translate File</a></li>
+											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">View Status</a></li>
+											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">View Your File</a></li>
 										</ul>
 									</div>
 								</div>
@@ -529,11 +529,47 @@
 				</div>
 			</div>
 		</div>
-		<script src="scripts/FormSteps.js"></script>
-		<script src="scripts/ViewIt.js"></script>
-		<script>
-			var fileControl = document.getElementById("ui_filePicker");
-			fileControl.addEventListener("change", startRead);
+    <script src="scripts/FormSteps.js"></script>
+    <script src="scripts/ViewIt.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var fileControl = document.getElementById("ui_filePicker");
+        fileControl.addEventListener("change", startRead);
+    </script>
+    <script>
+		jQuery(document).ready(function() {
+            
+			var offset = 200;
+			var duration = 500;
+			jQuery(window).scroll(function() {
+				if (jQuery(this).scrollTop() > offset) {
+					jQuery('.back-to-top-btn').fadeIn(duration);
+				} else {
+					jQuery('.back-to-top-btn').fadeOut(duration);
+				}
+			});
+			
+			jQuery('.back-to-top-btn').click(function(event) {
+				event.preventDefault();
+				jQuery('html, body').animate({scrollTop: 0}, duration);
+				return false;
+			})
+            
+            $('[data-clampedwidth]').each(function () {
+                var elem = $(this);
+                var parentPanel = elem.data('clampedwidth');
+                var resizeFn = function () {
+                    var sideBarNavWidth = $(parentPanel).width()
+                            - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight'))
+                            - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight'))
+                            - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
+                    elem.css('width', sideBarNavWidth);
+                };
+
+                resizeFn();
+                $(window).resize(resizeFn);
+            });
+		});
 		</script>
 	</body>
 </html>
