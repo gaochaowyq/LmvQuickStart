@@ -76,7 +76,7 @@ $(document).ready(function() {
             urlElem.attr('disabled','disabled');
             urlElem.val("** using manually generated AuthToken **");
             tokenElem.removeAttr('disabled');
-            buttonElem.html("Use Token");
+            buttonElem.html("Use AuthToken");
         }
     });
     
