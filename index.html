@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Autodesk View and Data API Quick Start Guide</title>
 		<!-- Bootstrap -->
-		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">
+<!--		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">-->
 		<link href="stylesheets/theme.css" rel="stylesheet">
 		<!-- jQuery -->
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
@@ -24,12 +24,12 @@
 		<script src="./scripts/DebugUtils.js"></script>
 		<script src="./scripts/FileUploader.js"></script>
 		<!--  adsk template -->
-		<link href="css/ionicons.css" rel="stylesheet">
-<!--		<link href="css/maria-theme-checkbox.css" rel="stylesheet">-->
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/maria-base-theme.css" rel="stylesheet">
-		<link href="css/maria-theme.css" rel="stylesheet">
-		<link href="css/open-sans.css" rel="stylesheet">
+        <link href="css/ionicons.css" rel="stylesheet">
+        <link href="css/maria-theme-checkbox.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/maria-base-theme.css" rel="stylesheet">
+        <link href="css/maria-theme.css" rel="stylesheet">
+        <link href="css/open-sans.css" rel="stylesheet">
 	</head>
 	<body data-spy="scroll" data-target="#nav-parent">
 		<!-- Header================================================== -->
@@ -40,7 +40,7 @@
 						<div class="navbar navbar-default app-navbar">
 							<div class="container app-container">
 								<div class="navbar-header">
-									<a class="navbar-brand" href="http://developer-autodesk.github.io/"><img width="160px;" src="images/Autodesk_logo.png" style="padding: 20px;">Developer</a>
+									<a class="navbar-brand" href="javascript:void(0)"><img width="160px;" src="images/Autodesk_logo.png" style="padding: 20px;"></a>
 								</div>
                                 <ul class="nav navbar-nav navbar-right">
 									<li><a href="https://github.com/Developer-Autodesk/LmvQuickStart" target="_blank">See Source Code</a></li>
@@ -71,7 +71,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 						<div id="nav-parent" class="page-header hidden-xs">
-							<div data-spy="affix" data-offset-top="200" class="panel panel-default app-panel-default app-sidenav-panel">
+							<div data-clampedwidth="#nav-parent" data-spy="affix" data-offset-top="200" class="panel panel-default app-panel-default app-sidenav-panel">
 								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
 									<div class="col-lg-12">
 										<ul class="nav nav-pills nav-stacked app-sidenav">
@@ -94,28 +94,28 @@
 							</div>
 						</div>
 						<div id="nav-parent-mobile" class="page-header hidden-sm hidden-md hidden-lg">
-							<div data-spy="affix" data-offset-top="150" class="panel panel-default app-panel-default app-sidenav-panel">
+							<div data-clampedwidth="#nav-parent-mobile" data-spy="affix" data-offset-top="150" class="panel panel-default app-panel-default app-sidenav-panel">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
 								</button>
 								<div class="navbar-collapse collapse navbar-responsive-collapse panel-body app-panel-body app-sidenav-body" role="complementary">
 									<div class="col-lg-12">
 										<ul class="nav nav-pills nav-stacked app-sidenav">
 											<li role="presentation" class="active"><a href="#step1" class="first-child" data-toggle="collapse" data-target=".navbar-responsive-collapse">Overview</a></li>
-											<li role="presentation"><a href="#step2" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step3" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step4" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step5" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step6" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step7" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step8" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step9" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step10" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
-											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">Step-by-step Guide</a></li>
+											<li role="presentation"><a href="#step2" data-toggle="collapse" data-target=".navbar-responsive-collapse">Sign Up</a></li>
+											<li role="presentation"><a href="#step3" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Access Token</a></li>
+											<li role="presentation"><a href="#step4" data-toggle="collapse" data-target=".navbar-responsive-collapse">Create Bucket</a></li>
+											<li role="presentation"><a href="#step5" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Bucket Details</a></li>
+											<li role="presentation"><a href="#step6" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Supported Formats</a></li>
+											<li role="presentation"><a href="#step7" data-toggle="collapse" data-target=".navbar-responsive-collapse">Upload File</a></li>
+											<li role="presentation"><a href="#step8" data-toggle="collapse" data-target=".navbar-responsive-collapse">Get Bucket Object</a></li>
+											<li role="presentation"><a href="#step9" data-toggle="collapse" data-target=".navbar-responsive-collapse">Set References</a></li>
+											<li role="presentation"><a href="#step10" data-toggle="collapse" data-target=".navbar-responsive-collapse">Encode URN</a></li>
+											<li role="presentation"><a href="#step11" data-toggle="collapse" data-target=".navbar-responsive-collapse">Translate File</a></li>
+											<li role="presentation"><a href="#step12" data-toggle="collapse" data-target=".navbar-responsive-collapse">View Status</a></li>
+											<li role="presentation"><a href="#step13" data-toggle="collapse" data-target=".navbar-responsive-collapse">View Your File</a></li>
 										</ul>
 									</div>
 								</div>
@@ -181,16 +181,32 @@
 													   <h2>Step 3:  Get Your Access Token</h2>
                                                     </div>
 													<p>To get an access token, pass your Consumer Key (as the client_id parameter) and Consumer Secret (as the client_secret parameter) to the Authentication API.  However, this cannot be done from the browser context because it would be a security hole to let your keys "leak out" to an unsafe location.  Therefore, you need to setup an Auth Token Service and embed your keys safely in that service.  Your browser based app will then call that service to get a valid auth token that it can use to make all API calls.  For more information on how to set up your own Auth Token Service, click <a href="./authTokenSetup.html" target="_blank">here</a></p>
-                                                    <p>If you want to quickly authenticate, you can just enter your client id and secret below and click "Get Access Token", then copy and paste the token in the text area and click "Use Token":</p>
-                                                    <p>The token will last for 30 minutes. If your token expired, do this step again.</p>
-                                                    <iframe style="border:none" width="100%" height="280px" src="http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/access-token.jsp"></iframe>
-
-                                                </div>
+													<p>If you use your own custom AuthTokenServer, enter the URL.  It must return the full response text that comes back from the call to the Viewing Service's <em>authenticate</em> API.</p>
+													<p>If you want to quickly authenticate, you can just cut and paste the following command to a Terminal window:
+													<p>
+														<label for="txt_curlStatement">cURL Statement</label>
+														<textarea class="form-control" id="txt_curlStatement" rows="1">curl --data "client_id=MY_CONSUMER_KEY&amp;client_secret=MY_CONSUMER_SECRET&amp;grant_type=client_credentials" https://developer.api.autodesk.com/authentication/v1/authenticate --header "Content-Type: application/x-www-form-urlencoded" -k</textarea>
+													<p>Make sure to relplace <em>MY_CONSUMER_KEY</em> and <em>MY_CONSUMER_SECRET</em> with the keys you obtained in Step 2.  When you get the result, cut and paste the "access_token" into the field below and then press the "Use AuthToken" button.  This AuthToken will expire after approximately 30 minutes and you will have to do this step again.</p>
+												</div>
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="eb_authToken">Access Token</label>
+															<label for="eb_authToken">Auth Token</label>
 															<input name="authToken" id="eb_authToken" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="checkbox">
+															<label>
+                                                                <input id="cb_useCustomeAuthTokenSvc" type="checkbox" value=""> 
+                                                                Use Custom AuthTokenService
+															</label>
+														</div>
+														<div class="form-group">
+															<label for="eb_urlAuthTokenService">URL of Auth Token Service</label>
+															<input name="urlAuthTokenService" id="eb_urlAuthTokenService" class="form-control" autofocus disabled>
 														</div>
 														<div class="form-group">
 															<button id="bn_authenticate" class="btn btn-primary" type="submit">Authenticate</button>
@@ -211,7 +227,7 @@
                                                     </div>
 													<p>"Buckets" are containers for data used by the Autodesk View and Data API.  Before uploading a file, create a bucket and set a retention policy. Briefly, the policies are:</p>
 													<ul class="simple">
-														<li><em>Transient</em>: cache-like storage that persists for only 24 hours, ideal for intermittent objecats.</li>
+														<li><em>Transient</em>: cache-like storage that persists for only 24 hours, ideal for intermittent objects.</li>
 														<li><em>Temporary</em>: storage that persists for 30 days.  Good for data that is uploaded and accessed, then not needed later.  This type of bucket storage will save your service money.</li>
 														<li><em>Persistent</em>: storage that persists until deleted.  Items that have not been accessed for 2 years may be archived.</li>
 													</ul>
@@ -221,7 +237,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label for="eb_bucketNameCreate">Bucket Name</label>
-															<input name="bucketName" id="eb_bucketNameCreate" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+															<input name="bucketName" id="eb_bucketNameCreate" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
 														</div>
 														<div class="form-group">
 															<label for="pu_bucketPolicy">Retention Policy</label>
@@ -253,7 +269,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label for="eb_bucketNameDetails">Bucket Name</label>
-															<input name="bucketName" id="eb_bucketNameDetails" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+															<input name="bucketName" id="eb_bucketNameDetails" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
 														</div>
 														<button class="btn btn-primary" type="submit">Get Bucket Details</button>
 													</div>
@@ -312,7 +328,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label for="eb_bucketNameUpload">Bucket Name</label>
-															<input name="bucketName" id="eb_bucketNameUpload" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+															<input name="bucketName" id="eb_bucketNameUpload" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
 														</div>
 														<div class="form-group">
 															<label for="ui_filePicker">Select File to Upload</label>
@@ -341,7 +357,7 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label for="eb_bucketNameGetObj">Bucket Name</label>
-															<input name="bucketName" id="eb_bucketNameGetObj" class="form-control" pattern="^[-_.a-z0-9]{3,128}$">
+															<input name="bucketName" id="eb_bucketNameGetObj" class="form-control" autofocus pattern="^[-_.a-z0-9]{3,128}$">
 														</div>
 														<div class="form-group">
 															<label for="eb_objKey">Object Key</label>
@@ -513,11 +529,47 @@
 				</div>
 			</div>
 		</div>
-		<script src="scripts/FormSteps.js"></script>
-		<script src="scripts/ViewIt.js"></script>
-		<script>
-			var fileControl = document.getElementById("ui_filePicker");
-			fileControl.addEventListener("change", startRead);
+    <script src="scripts/FormSteps.js"></script>
+    <script src="scripts/ViewIt.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var fileControl = document.getElementById("ui_filePicker");
+        fileControl.addEventListener("change", startRead);
+    </script>
+    <script>
+		jQuery(document).ready(function() {
+            
+			var offset = 200;
+			var duration = 500;
+			jQuery(window).scroll(function() {
+				if (jQuery(this).scrollTop() > offset) {
+					jQuery('.back-to-top-btn').fadeIn(duration);
+				} else {
+					jQuery('.back-to-top-btn').fadeOut(duration);
+				}
+			});
+			
+			jQuery('.back-to-top-btn').click(function(event) {
+				event.preventDefault();
+				jQuery('html, body').animate({scrollTop: 0}, duration);
+				return false;
+			})
+            
+            $('[data-clampedwidth]').each(function () {
+                var elem = $(this);
+                var parentPanel = elem.data('clampedwidth');
+                var resizeFn = function () {
+                    var sideBarNavWidth = $(parentPanel).width()
+                            - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight'))
+                            - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight'))
+                            - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
+                    elem.css('width', sideBarNavWidth);
+                };
+
+                resizeFn();
+                $(window).resize(resizeFn);
+            });
+		});
 		</script>
 	</body>
 </html>
