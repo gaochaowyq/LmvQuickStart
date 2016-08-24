@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Autodesk View and Data API Quick Start Guide</title>
+		<title>Autodesk Data Management API &amp; Viewer Quick Start Guide</title>
 		<!-- Bootstrap -->
 <!--		<link href="stylesheets/libs/bootstrap.min.css" rel="stylesheet">-->
 		<link href="stylesheets/theme.css" rel="stylesheet">
@@ -58,7 +58,7 @@
 					<div class="page-header content-header app-content-header api-detail-header view-and-data-api">
 						<div class="container app-container">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 app-title-container">
-								<h1 id="view-and-data-title">View and Data API Beta - Quick Start Guide</h1>
+								<h1 id="view-and-data-title">Data Management API Beta - Quick Start Guide</h1>
 							</div>
 						</div>
 					</div>
@@ -153,10 +153,10 @@
                                                     <div id="step2" class="app-api-section-heading">
                                                         <h2>Step 2: Sign Up/Sign In</h2>
                                                     </div>
-                                                    <p>To use the Autodesk View and Data API, first log in or register an Autodesk ID. Once you are logged in, you can create an app with the View and Data API.</p>
+                                                    <p>To use Autodesk API, first log in or register an Autodesk ID. Once you are logged in, you can create an app with Autodesk.</p>
                                                     <ul>
                                                         <li>Click on “Create an App”</li>
-                                                        <li>Select the “View and Data API Beta” checkbox.</li>
+                                                        <li>Select the “Data Management API” checkbox.</li>
                                                         <li>Enter the app name, description, and your website URL under “Redirect URL”</li>
                                                         <li>Check if your app will be used for commercial purposes. The API is still in beta, so we’d like to work closely with you if you’d like to put it in a commercial application.</li>
                                                     </ul>
@@ -185,7 +185,7 @@
 													<p>If you want to quickly authenticate, you can just cut and paste the following command to a Terminal window:
 													<p>
 														<label for="txt_curlStatement">cURL Statement</label>
-														<textarea class="form-control" id="txt_curlStatement" rows="1">curl --data "client_id=MY_CONSUMER_KEY&amp;client_secret=MY_CONSUMER_SECRET&amp;grant_type=client_credentials" https://developer.api.autodesk.com/authentication/v1/authenticate --header "Content-Type: application/x-www-form-urlencoded" -k</textarea>
+														<textarea class="form-control" id="txt_curlStatement" rows="1">curl https://developer.api.autodesk.com/authentication/v1/authenticate --data &#39;client_id=<YOUR>&amp;client_secret=CdNrZH5duo4oQdED&amp;grant_type=client_credentials&amp;scope=data:read data:write bucket:create&#39; --header &#39;Content-Type:application/x-www-form-urlencoded&#39; -k</textarea>
 													<p>Make sure to relplace <em>MY_CONSUMER_KEY</em> and <em>MY_CONSUMER_SECRET</em> with the keys you obtained in Step 2.  When you get the result, cut and paste the "access_token" into the field below and then press the "Use AuthToken" button.  This AuthToken will expire after approximately 30 minutes and you will have to do this step again.</p>
 												</div>
 												<div class="row">
@@ -200,7 +200,7 @@
 													<div class="col-md-6">
 														<div class="checkbox">
 															<label>
-                                                                <input id="cb_useCustomeAuthTokenSvc" type="checkbox" value=""> 
+                                                                <input id="cb_useCustomeAuthTokenSvc" type="checkbox" value="">
                                                                 Use Custom AuthTokenService
 															</label>
 														</div>
@@ -225,7 +225,7 @@
                                                     <div id="step4" class="app-api-section-heading">
 													   <h2>Step 4:  Create a Bucket</h2>
                                                     </div>
-													<p>"Buckets" are containers for data used by the Autodesk View and Data API.  Before uploading a file, create a bucket and set a retention policy. Briefly, the policies are:</p>
+													<p>"Buckets" are containers for data used by the Autodesk Data Management API.  Before uploading a file, create a bucket and set a retention policy. Briefly, the policies are:</p>
 													<ul class="simple">
 														<li><em>Transient</em>: cache-like storage that persists for only 24 hours, ideal for intermittent objects.</li>
 														<li><em>Temporary</em>: storage that persists for 30 days.  Good for data that is uploaded and accessed, then not needed later.  This type of bucket storage will save your service money.</li>
@@ -389,7 +389,7 @@
 														<textarea class="form-control" id="txt_sampleSetRefs" rows="10">
 {
     "master" : "urn:adsk.objects:os.object:MYBUCKET/ROOT_FILE.xyz",
-    "dependencies" : [{ 
+    "dependencies" : [{
             "file" : "urn:adsk.objects:os.object:MYBUCKET/LINKED_FILE.xyz",
             "metadata" : {
                 "childPath" : "LINKED_FILE.xyz",
@@ -397,7 +397,7 @@
                 }
         }
     ]
-}                   
+}
                                                         </textarea>
 														<br/>
 														<button class="btn btn-primary" type="submit">Set References</button>
@@ -512,9 +512,9 @@
 												<!-- just need a little space -->
 												<div class="row">
 													<div class="col-md-11" id="viewer">
-														<!-- Viewer goes here -->        
+														<!-- Viewer goes here -->
 														<!-- Upon the viewer initalizaiton, it will append a div to the above div to insert the viewer.  It
-															will use 100% width and height so that it will fill up whatever the above div's dimensions are. 
+															will use 100% width and height so that it will fill up whatever the above div's dimensions are.
 															NOTE: I had to set height in theme.css for this object or bootstrap would set height to 1px -->
 													</div>
 												</div>
@@ -538,7 +538,7 @@
     </script>
     <script>
 		jQuery(document).ready(function() {
-            
+
 			var offset = 200;
 			var duration = 500;
 			jQuery(window).scroll(function() {
@@ -548,13 +548,13 @@
 					jQuery('.back-to-top-btn').fadeOut(duration);
 				}
 			});
-			
+
 			jQuery('.back-to-top-btn').click(function(event) {
 				event.preventDefault();
 				jQuery('html, body').animate({scrollTop: 0}, duration);
 				return false;
 			})
-            
+
             $('[data-clampedwidth]').each(function () {
                 var elem = $(this);
                 var parentPanel = elem.data('clampedwidth');
