@@ -185,7 +185,7 @@
 													<p>If you want to quickly authenticate, you can just cut and paste the following command to a Terminal window:
 													<p>
 														<label for="txt_curlStatement">cURL Statement</label>
-														<textarea class="form-control" id="txt_curlStatement" rows="1">curl https://developer.api.autodesk.com/authentication/v1/authenticate --data &#39;client_id=<YOUR>&amp;client_secret=CdNrZH5duo4oQdED&amp;grant_type=client_credentials&amp;scope=data:read data:write bucket:create&#39; --header &#39;Content-Type:application/x-www-form-urlencoded&#39; -k</textarea>
+														<textarea class="form-control" id="txt_curlStatement" rows="1">curl https://developer.api.autodesk.com/authentication/v1/authenticate --data &#39;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;grant_type=client_credentials&amp;scope=data:read data:write bucket:create&#39; --header &#39;Content-Type:application/x-www-form-urlencoded&#39; -k</textarea>
 													<p>Make sure to relplace <em>MY_CONSUMER_KEY</em> and <em>MY_CONSUMER_SECRET</em> with the keys you obtained in Step 2.  When you get the result, cut and paste the "access_token" into the field below and then press the "Use AuthToken" button.  This AuthToken will expire after approximately 30 minutes and you will have to do this step again.</p>
 												</div>
 												<div class="row">
